@@ -37,9 +37,12 @@
   },
   "scripts": {
     "test": "mocha --check-leaks --require esm './**/*.test.js'",
-    "start:pm2": "pm2 start ./pm2.config.js",
-    "build": "babel --ignore build src/ -d build",
     "start": "nodemon --delay 1.5 --exec babel-node src/index.js",
-    "dev": "node-dev bin/server --port 3000"
+    "debug": "nodemon --inspect --delay 1.5 --exec babel-node src/index.js",
+    "start:prod": "yarn rebuild && yarn reload:pm2",
+    "start:pm2": "pm2 start ./pm2.config.js",
+    "reload:pm2": "pm2 reload ./pm2.config.js",
+    "rebuild": "rm -r build && yarn build",
+    "build": "babel --ignore build src/ -d build"
   }
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env node -r esm
 
-// import 'localenv';
+import 'localenv';
 
 import log from 'book';
 import Debug from 'debug';
