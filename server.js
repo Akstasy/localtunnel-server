@@ -5,6 +5,22 @@ import Debug from 'debug';
 import http from 'http';
 import { hri } from 'human-readable-ids';
 import Router from 'koa-router';
+import { config } from "dotenv";
+
+config();
+
+switch (process.env.NODE_ENV) {
+  case "production":
+    global.__DEV__ = false;
+    break;
+  case "development":
+    global.__DEV__ = true;
+    break;
+  default:
+    console.warn("Invalid NODE_ENV, default to dev environment");
+    global.__DEV__ = true;
+}
+
 
 import ClientManager from './lib/ClientManager';
 
