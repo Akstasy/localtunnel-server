@@ -19,10 +19,6 @@ const argv = {
   'max-sockets': MAX_SOCKETS,
 }
 
-
-
-console.log(argv)
-
 const server = CreateServer({
     max_tcp_sockets: argv['max-sockets'],
     secure: argv.secure,
